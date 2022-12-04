@@ -1,0 +1,21 @@
+server:
+  port: 9002
+
+spring:
+  application:
+    name: eureka-02
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      # 集群模式, 相互注册(单机模拟时需要修改 host 文件), 配置其他节点的域名
+      defaultZone: http://eureka-01:9001/eureka
+  server:
+    # 自我保护机制
+    enable-self-preservation: false
+
+logging:
+  level:
+    org.springframework: info

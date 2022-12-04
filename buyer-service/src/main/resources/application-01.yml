@@ -1,0 +1,20 @@
+server:
+  port: 8071
+
+spring:
+  application:
+    name: buyer-service
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka-01:9001/eureka,http://eureka-02:9002/eureka
+  instance:
+    # 实例名称
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+
+logging:
+  level:
+    org.springframework: debug
