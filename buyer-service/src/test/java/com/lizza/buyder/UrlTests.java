@@ -15,6 +15,7 @@ public class UrlTests {
     public void test1() throws Exception {
         URL url = new URL("http", "localhost", 8081, "/order-service/getOrders");
         URLConnection connection = url.openConnection();
+        System.out.println(connection.getHeaderFields());
         connection.setDoOutput(true);
         connection.connect();
         InputStream is = connection.getInputStream();
